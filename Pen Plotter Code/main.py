@@ -322,8 +322,6 @@ def task_main():
                     update = False
                     data = send.readline()
                     pen_CMD, th1, th2, xS, yS, th = data.split(',')
-#                     print(pen_CMD)
-#                     print(th1)
                     m1_CMD = float(th1)
                     m2_CMD = float(th2)
                     xS = float(xS)
@@ -348,6 +346,8 @@ def task_main():
                 elif pen_CMD == 'PD' and pen_is_up == True:
                     pen.pen_down()
                     pen_is_up = False
+                    motor1.set_target_pos(m1_CMD)
+                    motor2.set_target_pos(m2_CMD)
                 elif pen_CMD == 'PD' and pen_is_up == False:
                     motor1.set_target_pos(m1_CMD)
                     motor2.set_target_pos(m2_CMD)
@@ -488,14 +488,14 @@ if __name__ == '__main__':
     ## @brief Number of motor angles.   
     #  @details Variable containing the number of positions.  
     #
-    a = startup()
+    num = startup()
     
     ## @brief A share containing the number of positions.  
     #  @details This share is used to determine when to cease writing motor angles to the motors.  
     #
     elements = task_share.Share ('h', thread_protect = False, name = "Elements")
     
-    elements.put(a)
+    elements.put(num)
     
     ## @brief Creates a task for the main function.   
     #  @details This task is called by the scheduler.  
