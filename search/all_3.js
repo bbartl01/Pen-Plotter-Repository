@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mainpage_2epy_0',['mainpage.py',['../mainpage_8py.html',1,'']]],
-  ['me_20405_20portfolio_1',['ME 405 Portfolio',['../index.html',1,'']]]
+  ['dg_5fdtheta_0',['dg_dtheta',['../main_8py.html#abb3dbfb41c8e8bba79c089172cda64a2',1,'main']]]
 ];
