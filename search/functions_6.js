@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['pen_5fdown_0',['pen_down',['../classactuator_1_1_actuator.html#a7a9107cda49e06d5877cb2d0a00c00f8',1,'actuator::Actuator']]],
-  ['pen_5fup_1',['pen_up',['../classactuator_1_1_actuator.html#a6f3bc63ee6b012d3b937ffd7b4679daa',1,'actuator::Actuator']]],
-  ['plot_2',['Plot',['../_live_plotter_8py.html#a8777a7ab877d959831f77b8a39003cbe',1,'LivePlotter']]]
+  ['g_0',['g',['../main_8py.html#a213169d4a1b99e1746b2f6a427014c2f',1,'main']]],
+  ['get_1',['get',['../classtask__share_1_1_queue.html#af2aef1dd3eed21c4b6c2e601cb8497d4',1,'task_share.Queue.get()'],['../classtask__share_1_1_share.html#a599cd89ed1cd79af8795a51d8de70d27',1,'task_share.Share.get()']]],
+  ['get_5fpos_2',['get_pos',['../classstepperdriver_1_1_stepper_driver.html#a5613f9ddeccd569b213b971c3592c4eb',1,'stepperdriver::StepperDriver']]],
+  ['get_5ftarget_5fpos_3',['get_target_pos',['../classstepperdriver_1_1_stepper_driver.html#a9ee382eae44d8ae635d4bcb9e1b331d2',1,'stepperdriver::StepperDriver']]],
+  ['get_5ftrace_4',['get_trace',['../classcotask_1_1_task.html#a6e51a228f985aec8c752bd72a73730ae',1,'cotask::Task']]],
+  ['go_5',['go',['../classcotask_1_1_task.html#a78e74d18a5ba94074c2b5309394409a5',1,'cotask::Task']]]
 ];

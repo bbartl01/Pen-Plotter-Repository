@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['pen_0',['pen',['../main_8py.html#ad82801a885a935e6e22bc1c2774ac412',1,'main']]],
-  ['pen_5fdown_1',['pen_down',['../classactuator_1_1_actuator.html#a7a9107cda49e06d5877cb2d0a00c00f8',1,'actuator::Actuator']]],
-  ['pen_5fup_2',['pen_up',['../classactuator_1_1_actuator.html#a6f3bc63ee6b012d3b937ffd7b4679daa',1,'actuator::Actuator']]],
-  ['plot_3',['Plot',['../_live_plotter_8py.html#a8777a7ab877d959831f77b8a39003cbe',1,'LivePlotter']]]
+  ['main_2epy_0',['main.py',['../main_8py.html',1,'']]],
+  ['mainpage_2epy_1',['mainpage.py',['../mainpage_8py.html',1,'']]],
+  ['me_20405_20portfolio_2',['ME 405 Portfolio',['../index.html',1,'']]],
+  ['miso_5fpin_3',['MISO_pin',['../main_8py.html#ae4d99a4677c8eb5ba5f7fd514212c5f6',1,'main']]],
+  ['mosi_5fpin_4',['MOSI_pin',['../main_8py.html#a65ae034ca8c89457ed7fcc30b2b0bb99',1,'main']]],
+  ['motor1_5',['motor1',['../main_8py.html#a3a2f088acede9b226beb08b70c42f146',1,'main']]],
+  ['motor2_6',['motor2',['../main_8py.html#a1a2262732e6726079ffed3e075851a70',1,'main']]]
 ];

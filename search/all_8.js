@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ncs1_0',['nCS1',['../main_8py.html#afde2bcd828d00e12438435eac57c11a7',1,'main']]],
-  ['ncs2_1',['nCS2',['../main_8py.html#af551ce904e0952e08414c3358ca23ba6',1,'main']]],
-  ['newtonraphson_2',['NewtonRaphson',['../main_8py.html#a9d9cdcec72ed81ec82cd199b52225f13',1,'main']]]
+  ['linspace_0',['linspace',['../main_8py.html#a0d239996b66eb578727033a2654c7c97',1,'main']]],
+  ['liveplotter_2epy_1',['LivePlotter.py',['../_live_plotter_8py.html',1,'']]],
+  ['lock_5fpen_2',['lock_pen',['../classactuator_1_1_actuator.html#a41d68abad87408110ddbb8cdbcbb3049',1,'actuator::Actuator']]]
 ];

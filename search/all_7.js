@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['main_2epy_0',['main.py',['../main_8py.html',1,'']]],
-  ['mainpage_2epy_1',['mainpage.py',['../mainpage_8py.html',1,'']]],
-  ['me_20405_20portfolio_2',['ME 405 Portfolio',['../index.html',1,'']]],
-  ['miso_5fpin_3',['MISO_pin',['../main_8py.html#ae4d99a4677c8eb5ba5f7fd514212c5f6',1,'main']]],
-  ['mosi_5fpin_4',['MOSI_pin',['../main_8py.html#a65ae034ca8c89457ed7fcc30b2b0bb99',1,'main']]],
-  ['motor1_5',['motor1',['../main_8py.html#a3a2f088acede9b226beb08b70c42f146',1,'main']]],
-  ['motor2_6',['motor2',['../main_8py.html#a1a2262732e6726079ffed3e075851a70',1,'main']]]
+  ['g_0',['g',['../main_8py.html#a213169d4a1b99e1746b2f6a427014c2f',1,'main']]],
+  ['get_1',['get',['../classtask__share_1_1_queue.html#af2aef1dd3eed21c4b6c2e601cb8497d4',1,'task_share.Queue.get()'],['../classtask__share_1_1_share.html#a599cd89ed1cd79af8795a51d8de70d27',1,'task_share.Share.get()']]],
+  ['get_5fpos_2',['get_pos',['../classstepperdriver_1_1_stepper_driver.html#a5613f9ddeccd569b213b971c3592c4eb',1,'stepperdriver::StepperDriver']]],
+  ['get_5ftarget_5fpos_3',['get_target_pos',['../classstepperdriver_1_1_stepper_driver.html#a9ee382eae44d8ae635d4bcb9e1b331d2',1,'stepperdriver::StepperDriver']]],
+  ['get_5ftrace_4',['get_trace',['../classcotask_1_1_task.html#a6e51a228f985aec8c752bd72a73730ae',1,'cotask::Task']]],
+  ['go_5',['go',['../classcotask_1_1_task.html#a78e74d18a5ba94074c2b5309394409a5',1,'cotask::Task']]],
+  ['go_5fflag_6',['go_flag',['../classcotask_1_1_task.html#a96733bb9f4349a3f284083d1d4e64f9f',1,'cotask::Task']]]
 ];

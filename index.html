@@ -68,10 +68,135 @@ $(function() {
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="sec_intro"></a>
 Introduction</h1>
-<p >Welcome! This is the Mechatronics portfolio of Baxter Bartlett. Scroll down to find information for all labs that have currently been completed.</p>
-<dl class="section author"><dt>Author</dt><dd>Baxter Bartlett</dd></dl>
+<p >Welcome! This page gives a detailed description of the Pen Plotter project seen below. The Pen Plotter is a device that can draw simple images that are sent to it (see <a href="https://drive.google.com/file/d/1ZKuQZi6zEOl-AcV3qx-mC9MMJEjLbRM-/view">https://drive.google.com/file/d/1ZKuQZi6zEOl-AcV3qx-mC9MMJEjLbRM-/view</a> to watch a video of the Pen Plotter drawing a J and a B). This project was a quarter-long project for the Mechatronics class at Cal Poly SLO. All files used in this project can be found at <a href="https://github.com/bbartl01/Pen-Plotter-Repository">https://github.com/bbartl01/Pen-Plotter-Repository</a></p>
+<div class="image">
+<img src="Design.png" alt="" width="500px"/>
+</div>
+<h1><a class="anchor" id="sec_mech"></a>
+Mechanical Design</h1>
+<p >Below are descriptions of the mechanical components of our design. All designed components were either 3D printed or cut with a waterjet (see link gchgcjgfhmgfhktftyjfjyrfcjrdjtrxdjtrdkutfvuyutfv). <br  />
+</p>
+<h2><a class="anchor" id="subsec_rth"></a>
+Planar Motion of the Pen</h2>
+<p >To move the pen acros the paper, a polar coordinate scheme was selected (for polar coordinates, the pen has two degrees of freedom: the angle of the pen-arm chan change and the length of the pen-arm can change). Each degree of freedom was controlled by a stepper motor. <br  />
+</p>
+<p >To control the length of the pen-arm, the stepper motor was connected to a lead screw, which was threaded through a block that could hold the pen. Thus, a rotation of the lead screw would lead to linear translation of the pen along the screw's axis. To support the weight of the pen holder, the arm was given both a bottom and top plate, both containing slots for the pen holder (this made the arm more rigid). In hindsight, this was definitely useful, as even with this added rigidity, the arm experiences a moderate amount of deflection when the pen is far form the origin. <br  />
+ The length of the arm was also designed to extend behind the motor to act as a counterweight for the pen. <br  />
+</p>
+<p >Because of the added bulk to the arm, it was predicted that the stepper motor controlling the angle of the arm would not be able to generate enough torque to rotate the arm. Thus, it was devised to place the motor in a gear reduction, thereby increasing the torque that the motor had on the arm. A 3:1 gear reduction was chosen, which seemed to work well. A pulley was used to connect the gears so that teeth meshing wouldn't be a concern (this is hard to accomlish for printed gears). <br  />
+</p>
+<h2><a class="anchor" id="subsec_pen"></a>
+Vertical Motion of the Pen</h2>
+<p >Since we needed the capability to draw discontinuous shapes, we needed to control whether the pen was touching or not touching the paper. To do so, we incorporated a car door lock, attaching the pen to the tip of it. The car door lock could either be fully extended (bringing the pen into contact with the paper) or fully retracted (removing the pen from the paper). The car door lock certainly achieved the desired functionality. The only thing to note is that the lock moved so forcefully, that the pen was always being slammed rather hard into the paper. Regardless, the pen was never dislodged and the device never broke. <br  />
+</p>
+<h1><a class="anchor" id="sec_EE"></a>
+Electrical Design</h1>
+<p >Located underneath the Pen Plotter's drawing surface was a shelf that held the Nucleo with the Shoe of Brian attached. To control the motors with the Nucleo, the Nucleo (or the Shoe of brian in this instance) needed to be conected to the motor driver board seen below. This board contained a TMC 4210 and a TMC 2208 for each motor (one of each is required to drive a single steper motor). <br  />
+</p>
+<div class="image">
+<img src="motorboard.png" alt="" width="500px"/>
+</div>
+<p >After reading the manuals for the drivers, the following wiring scheme was chosen.</p>
+<div class="image">
+<img src="wiringdiagram.png" alt="" width="500px"/>
+</div>
+<p >A table detailing these connections is seen below:</p>
+<div class="image">
+<img src="wiringtable.png" alt="" width="500px"/>
+</div>
+<p >It should be noted that the TMC 2208 requires that the motors be bipolar. Since the motrs that were provided were configured to be unipolar, the motors needed to be modified. The PCB (circled in the image below) was removed, exposing several wire terminals. <br  />
+</p>
+<div class="image">
+<img src="motor_pre.png" alt="" width="500px"/>
+</div>
+<p >Four wires from the motor driver board were then connected to these terminals using heat shrink, as shown below. <br  />
+</p>
+<div class="image">
+<img src="motor_post.png" alt="" width="500px"/>
+</div>
+<p >NEED SOMETHING ABOUT PEN ACTUATOR WIRING!!!!!!!!!! JGFHDJGDJTRDJTRDJTHTRDlygkuyfkytfkyrcdjry</p>
+<h1><a class="anchor" id="sec_code"></a>
+Code</h1>
+<p >Shown below is a task diagram depicitng the structure of our code. <br  />
+</p>
+<div class="image">
+<img src="taskdiagram.png" alt="" width="1000px"/>
+</div>
+<p >To have the Pen Plotter draw an image, the image must first be drawn in Inkscape (or any program that can turn an image into HPGL code). From there, the HPGL code must be loaded onto the Nucleo. After entering the name of the file into the code, the code can begin running. <br  />
+</p>
+<h2><a class="anchor" id="subsec_startup"></a>
+startup()</h2>
+<p >Since every HPGL coordinate needed to have a set of operations performed on it, we decided to make a function called <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07" title="A function that performs all calculations before the motors start drawing.">startup()</a> that executed all of these operations before the robot began drawing (see <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07">main.startup()</a> for documentation regarding this function). This function was not structured as a finite state machine since the function only ran once (immediately upon startup), but it still had three distinct actions, each only being performed after the previous action had been performed on every HPGL coordinate. Since it was not built as a FSM, the diagram shown <br  />
+ below was made instead to convey the process of <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07" title="A function that performs all calculations before the motors start drawing.">startup()</a>. <br  />
+</p>
+<div class="image">
+<img src="startup.png" alt="" width="500px"/>
+</div>
+<p >As seen, the first action was that the HPGL code needed to be parsed, or decoded into information that our code could use (see the image below for what the HPGL code for the J and the B looked like). <br  />
+</p>
+<div class="image">
+<img src="HPGL.png" alt="" width="500px"/>
+</div>
+<p >As seen, the HPGL code had several commands (such as IN and SP1) that were not necessary or relevant. Thus, this portion of the code removed any irrelevant command by simply ignoring it. <br  />
+</p>
+<p >To enable additional processing, each (parsed) HPGL was stored in a list of tuples, with each tuple having the format ('Pen Command','x-coordinate','y-coordinate'). In hindsight, formatting this as a list of tuples wasn't the best idea, as lists can only hold so much data. This aspect limited the size of what we could draw (the only time this was observed was when trying to write more than one word; this aspect did not hinder the drawing of other, less long shapes). It would have been smarter to store this data in a text file, since these can store more memory. <br  />
+</p>
+<p >After all HPGL code was parsed, the second action of <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07" title="A function that performs all calculations before the motors start drawing.">startup()</a> began: interpolation. This section added additional points in between select points in order to eliminate the jaged nature of images (this results from the fact that the motors typically don't move the pen in a straight line since they move at different speeds). Memory allocation was a big concern of this section, and resulted in this section experiencing major modifications on two occasions. <br  />
+</p>
+<p >Originally this section was written to add a specified number of data points in between every single data point. We quickly saw that this needed to change since "jaggedness" was not observed if points were close enough and since the excess points just took up unecessary memory. Thus, the first modification consisted of changing the code such that it only interpolated between data points if the distance exceeded a specified amount. However, memory issues were a problem so the section was rewritten again such that all points (both from the Parsing section and points generated from interpolation) were written to a text file such that one line corresponded to one coordinate. This was a decision met with success (the only reason why the Parsing section was not rewritten to save data in a list was that the Interpolation section depended on coordinates being in a list of tuples, meaning that a third major modification - which we did not have time to do - would have been required). <br  />
+</p>
+<p >After the Interpolation section finished, the Newton-Raphson section began. This section did two things. First, it scaled and shifted every coordinate. This was done since Inkscape performs its own scaling and shifting when generating HPGL for an image. Since this scaling was super unhelpful, we derived Inkscape's coordinate transformation and applied the its inverse on every coordinate. <br  />
+</p>
+<p >The second thing this section did was find the motor angles required to achieve every coordinate of a drawing. The equations describing the Pen Plotter could find the resulting x and y coordinate for given motor angles, but couldn't be inverted such that the corresponding motor angles for a given x and y coordinate could be found. However, by implementing a Newton-Raphson method, the motor angles for a given x and y coordinate could be found without needing to invert the system. Hand calculations for the Newton-Raphson method can be found at <a href="https://github.com/bbartl01/Pen-Plotter-Repository/blob/main/NewtonRaphson.pdf">https://github.com/bbartl01/Pen-Plotter-Repository/blob/main/NewtonRaphson.pdf</a></p>
+<p >This section executed all such operations one coordinate at a time by reading one line of the text file at a time. <br  />
+ The original plan was to read one line fro the text file, find the motor angles, and then overwrite that line with the motor angles. However, since we could not achieve this functionality with the text files, we instead used this section to write to a second text file (in other words, we read from the first text file, performed all operations, and then wrote the result to a second text file). Each line of this text file contained a pen command, two motor angles, the x and y coordinate of a point, and the pen-arm's angle (the purpose of including these last three items will become apparent later). <br  />
+</p>
+<p >After all this was completed, the robot could begin drawing (all these actions tended to take about 10-15 seconds).</p>
+<h2><a class="anchor" id="subsec_main"></a>
+main()</h2>
+<p >The task that controlled all aspects of drawing was <a class="el" href="main_8py.html#a4dcba1efbb315d27198add25a1181d1e" title="A task that controls the motors to draw the desired shape.">task_main()</a> (see <a class="el" href="main_8py.html">main.py</a> for source code documentation). <br  />
+ This task read from the text file generated from the Newton-Raphson section of <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07" title="A function that performs all calculations before the motors start drawing.">startup()</a> and sent motor angles and pen commands to their respective motors once a desired coordinate had been reached. This task was structred as a finite state machine. The state transition diagram is shown below. <br  />
+</p>
+<div class="image">
+<img src="Plotter.png" alt="" width="1000px"/>
+</div>
+<p >A big challenge we faced while writing this section was that our images kept getting distorted along the radial direction of an image. We eventually determined that this was due to the fact that our math assumed that the pen started exactly on the origin of the arm (which, while not mathematically impossible, is physically impossible since the motor is already located there). We originally tried fixing this by adding an offset to every point during the Newton-Raphson section, but were met with no success. We solved the issue when we realized that the stepper motors had a register that allowed the user to define the current position. Thus, we rewrote our code such that, at the beginning, the motor controlling the distance of the pen was instructd that the pen was located the closest it could physically be to the motor (the measured distance had to be converted into ang angle) and the motor controlling the angle of the arm was instructed that the angle was such that the arm was at 90 degrees. Of course, this meant that every time the Pen Plotter started drawing, it needed to already be in these positions (or else more scaling issues would result), but this was never an issue since these positions were easy to put the Pen Plotter in. This approach was met with great success. <br  />
+</p>
+<p >Once the image was done being drawn, the last state of this task was having the arm return to its starting position. <br  />
+</p>
+<p >The shape drawn in the video from the top of this page is shown below.</p>
+<div class="image">
+<img src="JB.png" alt="" width="500px"/>
+</div>
+<h2><a class="anchor" id="subsec_stepper"></a>
+StepperDriver</h2>
+<p >Motors were controlled by making a class called StepperDriver and instantiating each motor as an object of this class. <br  />
+ This class received motor angles, converted them to microsteps, and wrote them to the corresponding registers. This class combind the functionalities of the TMC 2208 and TMC 4210 since control over both was required to drive a stepper motor. Documentation for this class can be found at <a class="el" href="classstepperdriver_1_1_stepper_driver.html">stepperdriver.StepperDriver</a></p>
+<p >One helpful feature we incorporated into this class was the ability to detect whether the motor had arrived at a target position. This was accomplished by finding the difference between the current position and the target position, and then returning a Boolean based off whether the difference was 0. This was helpful for our <a class="el" href="main_8py.html#a4dcba1efbb315d27198add25a1181d1e" title="A task that controls the motors to draw the desired shape.">task_main()</a> since it enabled us to only write motor coordinates once we had achieved the previous one. <br  />
+</p>
+<h2><a class="anchor" id="subsec_act"></a>
+Actuator</h2>
+<p >The pen actuator was controlled by a class called Actuator. This class simply extended or retracted the pen whenever the corresponding method was called. Documentation for this class can be found at <a class="el" href="classactuator_1_1_actuator.html">actuator.Actuator</a></p>
+<h2><a class="anchor" id="subsec_live"></a>
+Live Plotting</h2>
+<p >A final requirement of this project was to have some sort of extra functionality. We chose to make a real time animation of the robot drawing the shape. This was with the help of the text file generated in the Newton-Raphson section of <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07" title="A function that performs all calculations before the motors start drawing.">startup()</a>. As mentioned, aside from the motor commands, this file also contained the x-coordinate, y-coordinate, and arm angle for a given point. Each of these were sent over UART to a PC frontend every time a position on the drawing was reached. The PC frontend would take this data and not only plot the data point being drawn, but also plot the arm drawing the shape (this is why the arm angle was sent over UART). This functionality is demonstrated in the video at the top of the page (the link is repeated here: <a href="https://drive.google.com/file/d/1ZKuQZi6zEOl-AcV3qx-mC9MMJEjLbRM-/view">https://drive.google.com/file/d/1ZKuQZi6zEOl-AcV3qx-mC9MMJEjLbRM-/view</a>). Please see <a class="el" href="_live_plotter_8py.html">LivePlotter.py</a> for the source code documentation. This was a fun aspect of this project. <br  />
+</p>
+<h1><a class="anchor" id="sec_reflection"></a>
+Reflection</h1>
+<p >All in all, this was a very educational project, tackling facets of multiple disciplines. It was mechanical in that it gave us practice in designing a physical system, electrical in that it had us solder and wire our components, and software based in the complexity of the code that needed to be written. This was a challenging, yet great experience in which much was learned. <br  />
+</p>
+<p >This project required us to constantly be open to rethinking something, as seen (especially) with the interpolation section. <br  />
+ The willingness to rethink something is critical for improvment, as improvement can only happen from change. While our project isn't perfect, it is able to achieve its functionality since we were willing to change. However, our design could certainly be improved upon. Mechanically, the arm could be made more rigid such that it doesn't oscillate too much from its ability to deflect. Electrically, the wiring to components could be improved such that the wires aren't quite so tangled. <br  />
+ And as for the code itself, a text file could be incorporated when parsing the data such that bigger images can be drawn. <br  />
+ One other thing we would incorporate is a fourth action in <a class="el" href="main_8py.html#a461d41d52b39df4e0b95cee749f7bf07" title="A function that performs all calculations before the motors start drawing.">startup()</a> that automatically scales and shifts every coordinate such that it falls within the robot's drawing area (as it is right now, the user has to take several attempts to draw the desired shape and adjust the shifting parameters based off of observation). This action could determine the distance between the biggest and smallest x and y coordinate, and then scale or shift the image accordingly until it fits in the drawing area (which would need to be carefully measured by us using the original scaling/shifitng transformation). <br  />
+</p>
+<p >Hopefully this documentation has been informative and can help anyone build an improved version of this device without suffering the same struggles we did. <br  />
+</p>
+<dl class="section author"><dt>Author</dt><dd>Baxter Bartlett </dd>
+<dd>
+Jake Lesher</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>N/A</dd></dl>
-<dl class="section date"><dt>Date</dt><dd>February 23, 2022 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>June 7, 2022 </dd></dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
