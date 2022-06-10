@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['pen_0',['pen',['../main_8py.html#ad82801a885a935e6e22bc1c2774ac412',1,'main']]],
-  ['pen_5fdown_1',['pen_down',['../classactuator_1_1_actuator.html#a7a9107cda49e06d5877cb2d0a00c00f8',1,'actuator::Actuator']]],
-  ['pen_5fup_2',['pen_up',['../classactuator_1_1_actuator.html#a6f3bc63ee6b012d3b937ffd7b4679daa',1,'actuator::Actuator']]],
-  ['period_3',['period',['../classcotask_1_1_task.html#a44f980f61f1908764c6821fa886590ca',1,'cotask::Task']]],
-  ['plot_4',['Plot',['../_live_plotter_8py.html#a8777a7ab877d959831f77b8a39003cbe',1,'LivePlotter']]],
-  ['pri_5flist_5',['pri_list',['../classcotask_1_1_task_list.html#aac6e53cb4fec80455198ff85c85a4b51',1,'cotask::TaskList']]],
-  ['pri_5fsched_6',['pri_sched',['../classcotask_1_1_task_list.html#a5f7b264614e8e22c28d4c1509e3f30d8',1,'cotask::TaskList']]],
-  ['priority_7',['priority',['../classcotask_1_1_task.html#aeced93c7b7d23e33de9693d278aef88b',1,'cotask::Task']]],
-  ['put_8',['put',['../classtask__share_1_1_queue.html#ae785bdf9d397d61729c22656471a81df',1,'task_share.Queue.put()'],['../classtask__share_1_1_share.html#ab449c261f259db176ffeea55ccbf5d96',1,'task_share.Share.put()']]]
+  ['name_0',['name',['../classcotask_1_1_task.html#ab54e069dd0b4f0a2f8e7f00c94998a10',1,'cotask::Task']]],
+  ['ncs_1',['nCS',['../classstepperdriver_1_1_stepper_driver.html#a0d28777302b04b127d988c8f471858f8',1,'stepperdriver::StepperDriver']]],
+  ['ncs1_2',['nCS1',['../main_8py.html#afde2bcd828d00e12438435eac57c11a7',1,'main']]],
+  ['ncs2_3',['nCS2',['../main_8py.html#af551ce904e0952e08414c3358ca23ba6',1,'main']]],
+  ['newtonraphson_4',['NewtonRaphson',['../main_8py.html#a9d9cdcec72ed81ec82cd199b52225f13',1,'main']]],
+  ['num_5',['num',['../main_8py.html#a6778029661a268fae81e2efedee71fb0',1,'main']]],
+  ['num_5fin_6',['num_in',['../classtask__share_1_1_queue.html#a713321bacac5d93ecf89c4be1c15fe30',1,'task_share::Queue']]]
 ];

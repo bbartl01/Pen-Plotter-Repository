@@ -1,22 +1,8 @@
 var searchData=
 [
-  ['schedule_0',['schedule',['../classcotask_1_1_task.html#af60def0ed4a1bc5fec32f3cf8b8a90c8',1,'cotask::Task']]],
-  ['ser_5fnum_1',['ser_num',['../classtask__share_1_1_queue.html#a6f9d87b116eb16dba0867d3746af9f5f',1,'task_share.Queue.ser_num()'],['../classtask__share_1_1_share.html#a2e8df029af46fbfd44ef0c2e7e8c7af6',1,'task_share.Share.ser_num()']]],
-  ['set_5faccel_2',['set_accel',['../classstepperdriver_1_1_stepper_driver.html#a0d9eed3febedb83723f290ac082fc80e',1,'stepperdriver::StepperDriver']]],
-  ['set_5fdivs_3',['set_divs',['../classstepperdriver_1_1_stepper_driver.html#a94a5515e89d3abedf39fc4912b3db4a6',1,'stepperdriver::StepperDriver']]],
-  ['set_5fmode_4',['set_mode',['../classstepperdriver_1_1_stepper_driver.html#a80e3ab43f6bf227e0f64a2af4d228dc9',1,'stepperdriver::StepperDriver']]],
-  ['set_5fperiod_5',['set_period',['../classcotask_1_1_task.html#a310e065fb576dff0e23d075c4e83a5f4',1,'cotask::Task']]],
-  ['set_5ftarget_5fpos_6',['set_target_pos',['../classstepperdriver_1_1_stepper_driver.html#a2974f1c3f38f969cdd1e8270343f18fd',1,'stepperdriver::StepperDriver']]],
-  ['set_5fvelocity_7',['set_velocity',['../classstepperdriver_1_1_stepper_driver.html#aa8a84ca93533b628cae2db08893d5240',1,'stepperdriver::StepperDriver']]],
-  ['set_5fvmax_8',['set_vmax',['../classstepperdriver_1_1_stepper_driver.html#ae7eaaa9aea30dc7e5e07617571cab81e',1,'stepperdriver::StepperDriver']]],
-  ['set_5fvmin_9',['set_vmin',['../classstepperdriver_1_1_stepper_driver.html#afc53ea44715cd84b64bd77571c9d6d44',1,'stepperdriver::StepperDriver']]],
-  ['set_5fzero_10',['set_zero',['../classstepperdriver_1_1_stepper_driver.html#a2e7495385b5675c1305532e61ad380a1',1,'stepperdriver::StepperDriver']]],
-  ['share_11',['Share',['../classtask__share_1_1_share.html',1,'task_share']]],
-  ['share_5flist_12',['share_list',['../task__share_8py.html#a75818e5b662453e3723d0f234c85e519',1,'task_share']]],
-  ['show_5fall_13',['show_all',['../task__share_8py.html#a130cad0bc96d3138e77344ea85586b7c',1,'task_share']]],
-  ['spi_14',['spi',['../main_8py.html#abab94a6a726a567406da3ce30e43973b',1,'main']]],
-  ['spi_5fclk_5fpin_15',['SPI_CLK_pin',['../main_8py.html#a03fa42d07b68dfa02ff466e01acf66a8',1,'main']]],
-  ['startup_16',['startup',['../main_8py.html#a461d41d52b39df4e0b95cee749f7bf07',1,'main']]],
-  ['stepperdriver_17',['StepperDriver',['../classstepperdriver_1_1_stepper_driver.html',1,'stepperdriver']]],
-  ['stepperdriver_2epy_18',['stepperdriver.py',['../stepperdriver_8py.html',1,'']]]
+  ['ramp_5fmode_0',['RAMP_MODE',['../classstepperdriver_1_1_stepper_driver.html#ab072036a8f84d613353325e96725b591',1,'stepperdriver::StepperDriver']]],
+  ['ready_1',['ready',['../classcotask_1_1_task.html#a6102bc35d7cb1ce292abc85d4ddc23e1',1,'cotask::Task']]],
+  ['reset_5fprofile_2',['reset_profile',['../classcotask_1_1_task.html#a1bcbfa7dd7086112af20b7247ffa4a2e',1,'cotask::Task']]],
+  ['rr_5fsched_3',['rr_sched',['../classcotask_1_1_task_list.html#a01614098aedc87b465d5525c6ccb47ce',1,'cotask::TaskList']]],
+  ['rx_5fbuf_4',['RX_buf',['../classstepperdriver_1_1_stepper_driver.html#a55c7dce3d358bff9ff6d92462c898597',1,'stepperdriver::StepperDriver']]]
 ];

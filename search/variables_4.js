@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['miso_5fpin_0',['MISO_pin',['../main_8py.html#ae4d99a4677c8eb5ba5f7fd514212c5f6',1,'main']]],
-  ['mosi_5fpin_1',['MOSI_pin',['../main_8py.html#a65ae034ca8c89457ed7fcc30b2b0bb99',1,'main']]],
-  ['motor1_2',['motor1',['../main_8py.html#a3a2f088acede9b226beb08b70c42f146',1,'main']]],
-  ['motor2_3',['motor2',['../main_8py.html#a1a2262732e6726079ffed3e075851a70',1,'main']]]
+  ['if_5fconf_0',['IF_CONF',['../classstepperdriver_1_1_stepper_driver.html#ab19e5e4783fcda04c03b41b7448ef766',1,'stepperdriver::StepperDriver']]],
+  ['in1a_1',['IN1A',['../classactuator_1_1_actuator.html#add39f7d7c9a30ca025937d40e5c317c5',1,'actuator::Actuator']]],
+  ['in2a_2',['IN2A',['../classactuator_1_1_actuator.html#a81058a496c438e9bdef1758a6de38d12',1,'actuator::Actuator']]]
 ];
