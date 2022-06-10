@@ -78,8 +78,11 @@ Mechanical Design</h1>
 </p>
 <h2><a class="anchor" id="subsec_rth"></a>
 Planar Motion of the Pen</h2>
-<p >To move the pen acros the paper, a polar coordinate scheme was selected (for polar coordinates, the pen has two degrees of freedom: the angle of the pen-arm chan change and the length of the pen-arm can change). Each degree of freedom was controlled by a stepper motor. <br  />
+<p >To move the pen acros the paper, a polar coordinate scheme was selected (for polar coordinates, the pen has two degrees of freedom: the angle of the pen-arm chan change and the length of the pen-arm can change). Each degree of freedom was controlled by a stepper motor. Shown below is a CAD model image depicting the locations of the motors. <br  />
 </p>
+<div class="image">
+<img src="CAD.png" alt="" width="500px"/>
+</div>
 <p >To control the length of the pen-arm, the stepper motor was connected to a lead screw, which was threaded through a block that could hold the pen. Thus, a rotation of the lead screw would lead to linear translation of the pen along the screw's axis. To support the weight of the pen holder, the arm was given both a bottom and top plate, both containing slots for the pen holder (this made the arm more rigid). In hindsight, this was definitely useful, as even with this added rigidity, the arm experiences a moderate amount of deflection when the pen is far form the origin. <br  />
  The length of the arm was also designed to extend behind the motor to act as a counterweight for the pen. <br  />
 </p>
@@ -87,11 +90,16 @@ Planar Motion of the Pen</h2>
 </p>
 <h2><a class="anchor" id="subsec_pen"></a>
 Vertical Motion of the Pen</h2>
-<p >Since we needed the capability to draw discontinuous shapes, we needed to control whether the pen was touching or not touching the paper. To do so, we incorporated a car door lock, attaching the pen to the tip of it. The car door lock could either be fully extended (bringing the pen into contact with the paper) or fully retracted (removing the pen from the paper). The car door lock certainly achieved the desired functionality. The only thing to note is that the lock moved so forcefully, that the pen was always being slammed rather hard into the paper. Regardless, the pen was never dislodged and the device never broke. <br  />
+<p >Since we needed the capability to draw discontinuous shapes, we needed to control whether the pen was touching or not touching the paper. To do so, we incorporated a car door lock, attaching the pen to the tip of it. As depicted in the CAD model image below, the car door lock (shown in blue) was attached to the block (shown in white) that the lead screw advanced. <br  />
+</p>
+<div class="image">
+<img src="lock_model.png" alt="" width="500px"/>
+</div>
+<p >The car door lock could either be fully extended (bringing the pen into contact with the paper) or fully retracted (removing the pen from the paper). The car door lock certainly achieved the desired functionality. The only thing to note is that the lock moved so forcefully, that the pen was always being slammed rather hard into the paper. Regardless, the pen was never dislodged and the device never broke. <br  />
 </p>
 <h1><a class="anchor" id="sec_EE"></a>
 Electrical Design</h1>
-<p >Located underneath the Pen Plotter's drawing surface was a shelf that held the Nucleo with the Shoe of Brian attached. To control the motors with the Nucleo, the Nucleo (or the Shoe of brian in this instance) needed to be conected to the motor driver board seen below. This board contained a TMC 4210 and a TMC 2208 for each motor (one of each is required to drive a single steper motor). <br  />
+<p >Located underneath the Pen Plotter's drawing surface was a shelf that held the Nucleo with the Shoe of Brian attached. To control the motors with the Nucleo, the Nucleo (or the Shoe of brian in this instance) needed to be conected to the motor driver board seen below. This board contained a TMC 4210 and a TMC 2208 for each motor (one of each is required to drive a single steper motor). The motors were connected to a 12 V power source. <br  />
 </p>
 <div class="image">
 <img src="motorboard.png" alt="" width="500px"/>
@@ -114,7 +122,10 @@ Electrical Design</h1>
 <div class="image">
 <img src="motor_post.png" alt="" width="500px"/>
 </div>
-<p >NEED SOMETHING ABOUT PEN ACTUATOR WIRING!!!!!!!!!! JGFHDJGDJTRDJTRDJTHTRDlygkuyfkytfkyrcdjry</p>
+<p >To control the car door lock, an X-Nucleo IHMO4A1 motor driver board (shown below) was used. This board sat atop the Nucleo and had two wires connecting it to the car door lock. The board was supplied with 12 V from the same input as for the stepper motors, and the actuator was controlled as a DC motor. The driver code enabled the motor by setting EN-A high, and then was able to drive and reverse the motor for short bursts by setting the IN1A and IN2A pins. Only the motor A pins were used, and the ADC pin was left alone. To raise and lower the pen, the motor was set to turn on for 0.2 seconds, causing a momentary stalling condition.</p>
+<div class="image">
+<img src="X-Nucleo.png" alt="" width="500px"/>
+</div>
 <h1><a class="anchor" id="sec_code"></a>
 Code</h1>
 <p >Shown below is a task diagram depicitng the structure of our code. <br  />
